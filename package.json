@@ -1,5 +1,5 @@
 {
-  "name": "react-native-credit-card-ui",
+  "name": "react-native-credit-card-ui-pkg",
   "version": "0.2.0",
   "description": "Credit card UI module",
   "main": "lib/commonjs/index.js",

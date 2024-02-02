@@ -75,7 +75,7 @@ const SingleModule = (props) => {
             zIndex: flip === 0 ? 1 : 0
         }]}>
             <ImageBackground
-                source={require('../assets/creditcardbg.png')}
+                source={require('../../assets/creditcardbg.png')}
                 style={styles.cardBg}
             >
                 <View style={styles.inputContainer}>
@@ -141,7 +141,7 @@ const SingleModule = (props) => {
             zIndex: flip === 0 ? 0 : 1
         }]}>
             <ImageBackground
-                source={require('../assets/creditcardbg.png')}
+                source={require('../../assets/creditcardbg.png')}
                 style={styles.cardBg}
             >
                 <View style={styles.backFaceContainer}> 

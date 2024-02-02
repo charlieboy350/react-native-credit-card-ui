@@ -8,6 +8,6 @@
 import React from "react";
 import SingleModule from "./pkg/module/SingleModule";
 
-export default (props: any) => <SingleModule
+export default (props) => <SingleModule
     {...props}
 />

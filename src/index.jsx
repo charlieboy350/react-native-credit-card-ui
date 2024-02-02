@@ -1,9 +1,8 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+
 
 import SingleModule from "./pkg/module/SingleModule";
-export const ReactNativeCreditCardUi = SingleModule;
+const ReactNativeCreditCardUi = (props)=>{
+    return <SingleModule {...props} />
+};
+
+export default ReactNativeCreditCardUi;

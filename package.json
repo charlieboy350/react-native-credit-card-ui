@@ -5,7 +5,7 @@
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
   "types": "lib/typescript/src/index.d.ts",
-  "react-native": "src/index.jsx",
+  "react-native": "src/index",
   "source": "src/index",
   "files": [
     "src",
@@ -36,6 +36,10 @@
   },
   "keywords": [
     "react-native",
+    "credit-card-ui",
+    "braintree",
+    "paypal",
+    "credit-card",
     "ios",
     "android"
   ],
@@ -111,7 +115,7 @@
       "tagName": "v${version}"
     },
     "npm": {
-      "publish": false
+      "publish": true
     },
     "github": {
       "release": true
@@ -157,7 +161,8 @@
     "output": "lib",
     "targets": [
       "commonjs",
-      "module"
+      "module",
+      "typescript"
     ]
   },
   "directories": {

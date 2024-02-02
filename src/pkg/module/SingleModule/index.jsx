@@ -1,14 +1,15 @@
+import React from "react";
 import { memo } from "react";
 import {  Animated, Dimensions, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import useSingleModuleHook from "./hooks/useSingleModuleHook";
+import useSingleModuleHook from "./hooks/useSingleModuleHook.js";
 import {Image, SvgXml} from "react-native-svg";
 
-import GoBack from '../assets/goBack.js';
+import GoBack from '../../assets/goBack.js';
 
-import AliPay from '../assets/alipay.js';
-import Amex from '../assets/amex.js';
-import Visa from '../assets/visa.js';
-import Master from '../assets/mastercard.js';
+import AliPay from '../../assets/alipay.js';
+import Amex from '../../assets/amex.js';
+import Visa from '../../assets/visa.js';
+import Master from '../../assets/mastercard.js';
 
 const CARD_HEIGHT = 250;
 const CARD_WIDTH = 420;
@@ -327,4 +328,4 @@ const SingleModule = (props) => {
     
 });
 
-export default memo(SingleModule);
+export default SingleModule;

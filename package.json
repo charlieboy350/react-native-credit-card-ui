@@ -2,9 +2,7 @@
   "name": "react-native-credit-card-ui-pkg",
   "version": "0.2.4",
   "description": "Credit card UI module",
-  "main": "index.jsx",
-  "react-native": "src/index",
-  "source": "src/index",
+  "main": "App.jsx",
   "files": [
     "src",
     "lib",

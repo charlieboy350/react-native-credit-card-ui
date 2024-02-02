@@ -6,4 +6,4 @@
  */
 
 import SingleModule from "./pkg/module/SingleModule";
-export const SingleModule = SingleModule;
+export const ReactNativeCreditCardUi = SingleModule;

@@ -1,6 +1,7 @@
 # OSX
 #
 .DS_Store
+./yarn.lock
 
 # XDE
 .expo/
@@ -67,7 +68,10 @@ android/keystores/debug.keystore
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-*.lock
+
+
+
+
 # Expo
 .expo/
 

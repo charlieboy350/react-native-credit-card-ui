@@ -1,7 +1,9 @@
 
 
+import React from "react";
 import SingleModule from "./pkg/module/SingleModule";
-const ReactNativeCreditCardUi = (props)=>{
+
+const ReactNativeCreditCardUi = (props: any)=>{
     return <SingleModule {...props} />
 };
 

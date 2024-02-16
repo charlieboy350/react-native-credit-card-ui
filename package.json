@@ -1,8 +1,8 @@
 {
   "name": "react-native-credit-card-ui-pkg",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "Credit card UI module",
-  "main": "./src/index.jsx",
+  "main": "./src/index",
   "files": [
     "src",
     "lib",
@@ -59,6 +59,7 @@
     "@types/jest": "^28.1.2",
     "@types/react": "~17.0.21",
     "@types/react-native": "0.70.0",
+    "babel-jest": "^29.7.0",
     "commitlint": "^17.0.2",
     "del-cli": "^5.0.0",
     "eslint": "^8.4.1",
@@ -93,6 +94,9 @@
   },
   "jest": {
     "preset": "react-native",
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
     "modulePathIgnorePatterns": [
       "<rootDir>/customCreditCard/node_modules",
       "<rootDir>/lib/"

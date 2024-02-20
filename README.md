@@ -5,8 +5,8 @@ Credit card UI module
 This is a fully functional and animated credit card form library, and it's ready to use 🚀
 
 ![Demo](./assets/demo.gif)
-![](./assets/img1.png)
-![](./assets/img2.png)
+<img src="./assets/img1.png" width="208">
+<img src="./assets/img2.png" width="208">
 
 
 ## Support

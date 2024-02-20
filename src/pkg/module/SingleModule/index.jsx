@@ -1,15 +1,21 @@
-import React from "react";
 import { memo } from "react";
 import {  Animated, Dimensions, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import useSingleModuleHook from "./hooks/useSingleModuleHook.js";
-import {Image, SvgXml} from "react-native-svg";
+import useSingleModuleHook from "./hooks/useSingleModuleHook";
+import {SvgXml} from "react-native-svg";
 
-import GoBack from '../../assets/goBack.js';
+import GoBack from '../assets/goBack.js';
 
-import AliPay from '../../assets/alipay.js';
-import Amex from '../../assets/amex.js';
-import Visa from '../../assets/visa.js';
-import Master from '../../assets/mastercard.js';
+import AliPay from '../assets/alipay.js';
+import Amex from '../assets/amex.js';
+import Visa from '../assets/visa.js';
+import Master from '../assets/mastercard.js';
+import UnionPay from '../assets/unionpay.js';
+
+import Jcb from '../assets/jcb.js';
+import Elo from '../assets/elo.js';
+import Maestro from '../assets/maestro.js';
+import Discover from '../assets/discover.js';
+import Diners from '../assets/diners.js';
 
 const CARD_HEIGHT = 250;
 const CARD_WIDTH = 420;
@@ -38,6 +44,42 @@ const CREDIT_CARD_LOGOS = {
         name: "Master Card",
         description: "",
         src: Master
+    },
+    unionpay: {
+        type: "unionpay",
+        name: "UnionPay",
+        description: "",
+        src: UnionPay
+    },
+    discover: {
+        type: "discover",
+        name: "Discover",
+        description: "",
+        src: Discover
+    },
+    elo: {
+        type: "elo",
+        name: "Elo",
+        description: "",
+        src: Elo
+    },
+    maestro: {
+        type: "maestro",
+        name: "Maestro",
+        description: "",
+        src: Maestro
+    },
+    jcb: {
+        type: "jcb",
+        name: "Jcb",
+        description: "",
+        src: Jcb
+    },
+    dinersclub: {
+        type: "diners",
+        name: "diners",
+        description: "",
+        src: Diners
     }
 }
 
@@ -75,7 +117,7 @@ const SingleModule = (props) => {
             zIndex: flip === 0 ? 1 : 0
         }]}>
             <ImageBackground
-                source={require('../../assets/creditcardbg.png')}
+                source={require('../assets/creditcardbg.png')}
                 style={styles.cardBg}
             >
                 <View style={styles.inputContainer}>
@@ -141,7 +183,7 @@ const SingleModule = (props) => {
             zIndex: flip === 0 ? 0 : 1
         }]}>
             <ImageBackground
-                source={require('../../assets/creditcardbg.png')}
+                source={require('../assets/creditcardbg.png')}
                 style={styles.cardBg}
             >
                 <View style={styles.backFaceContainer}> 

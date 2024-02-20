@@ -80,6 +80,7 @@
     "react-native": "*"
   },
   "dependencies": {
+    "copyfiles": "^2.4.1",
     "credit-card-type": "^10.0.0",
     "creditcardutils": "^1.0.0",
     "react-native-svg": "^14.1.0",

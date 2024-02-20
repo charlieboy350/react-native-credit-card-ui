@@ -11,11 +11,33 @@ npm install react-native-credit-card-ui
 ## Usage
 
 ```js
-import { multiply } from 'react-native-credit-card-ui';
+import ReactNativeCreditCardUi from 'react-native-credit-card-ui-pkg';
+
 
 // ...
-
-const result = await multiply(3, 7);
+return (
+    //...
+    // must set minimum height to 350 units
+    // onComplete will trigger once the whole card is filled name, card number, cvv number and expiry date  
+    <View style={{height:350}}> 
+        <ReactNativeCreditCardUi onComplete={ (todo) => {
+                    //...
+                    todo = {...todo, number: todo.number.replaceAll(" ",'')}
+                    console.log(todo);
+                    /**
+                     * this will be the return of the onComplate callback
+                     {
+                        number: XXXX XXXX XXXX XXXX [XXX],
+                        expirationMonth: month,
+                        expirationYear: year,
+                        expiryText: month/year,
+                        cvv: XXX[X],
+                    }
+                    */
+                    //...
+        }} />
+    </View>
+)
 ```
 
 ## Contributing
@@ -24,8 +46,5 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 
 ## License
 
-MIT
+MIT © [Naeem ur rehman](https://naeemurrehman.com)
 
----
-
-Made with [ -react-native-library](https://github.com/callstack/react-native-builder-bob)

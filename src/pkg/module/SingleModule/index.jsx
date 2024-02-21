@@ -3,19 +3,19 @@ import {  Animated, Dimensions, ImageBackground, StyleSheet, Text, TextInput, To
 import useSingleModuleHook from "./hooks/useSingleModuleHook";
 import {SvgXml} from "react-native-svg";
 
-import GoBack from '../assets/goBack.js';
+import GoBack from '../../assets/goBack.js';
 
-import AliPay from '../assets/alipay.js';
-import Amex from '../assets/amex.js';
-import Visa from '../assets/visa.js';
-import Master from '../assets/mastercard.js';
-import UnionPay from '../assets/unionpay.js';
+import AliPay from '../../assets/alipay.js';
+import Amex from '../../assets/amex.js';
+import Visa from '../../assets/visa.js';
+import Master from '../../assets/mastercard.js';
+import UnionPay from '../../assets/unionpay.js';
 
-import Jcb from '../assets/jcb.js';
-import Elo from '../assets/elo.js';
-import Maestro from '../assets/maestro.js';
-import Discover from '../assets/discover.js';
-import Diners from '../assets/diners.js';
+import Jcb from '../../assets/jcb.js';
+import Elo from '../../assets/elo.js';
+import Maestro from '../../assets/maestro.js';
+import Discover from '../../assets/discover.js';
+import Diners from '../../assets/diners.js';
 
 const CARD_HEIGHT = 250;
 const CARD_WIDTH = 420;

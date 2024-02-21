@@ -387,4 +387,4 @@ const SingleModule = (props) => {
     
 });
 
-export default memo(SingleModule);
+export default SingleModule;

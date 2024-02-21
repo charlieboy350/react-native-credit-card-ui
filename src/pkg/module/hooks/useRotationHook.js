@@ -1,15 +1,16 @@
-import { useRef } from 'react';
-import { Animated } from 'react-native';
+import {useRef} from 'react';
+import {Animated} from 'react-native';
 
-const useRotationHook = (props) => {
+const useRotationHook = props => {
   const animation = useRef(new Animated.Value(0)).current;
 
-  const startAnimation = (val = 1) => {
+  const startAnimation = (val = 1, callback) => {
     Animated.timing(animation, {
       toValue: val,
       duration: 750,
+      delay: 100,
       useNativeDriver: true,
-    }).start();
+    }).start(callback || undefined);
   };
 
   //interpolate
@@ -18,7 +19,7 @@ const useRotationHook = (props) => {
     outputRange: [props?.initialDeg || '0deg', props?.finalDeg || '180deg'],
   });
 
-  return { rotateInterpolation, startAnimation };
+  return {rotateInterpolation, startAnimation};
 };
 
 export default useRotationHook;

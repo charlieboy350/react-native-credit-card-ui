@@ -1,21 +1,21 @@
 import { memo } from "react";
 import {  Animated, Dimensions, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import useSingleModuleHook from "./hooks/useSingleModuleHook";
+import useSingleModuleHook from "./hooks/useSingleModuleHook.js";
 import {SvgXml} from "react-native-svg";
 
-import GoBack from '../../assets/goBack.js';
+import GoBack from '../assets/goBack.js';
 
-import AliPay from '../../assets/alipay.js';
-import Amex from '../../assets/amex.js';
-import Visa from '../../assets/visa.js';
-import Master from '../../assets/mastercard.js';
-import UnionPay from '../../assets/unionpay.js';
+import AliPay from '../assets/alipay.js';
+import Amex from '../assets/amex.js';
+import Visa from '../assets/visa.js';
+import Master from '../assets/mastercard.js';
+import UnionPay from '../assets/unionpay.js';
 
-import Jcb from '../../assets/jcb.js';
-import Elo from '../../assets/elo.js';
-import Maestro from '../../assets/maestro.js';
-import Discover from '../../assets/discover.js';
-import Diners from '../../assets/diners.js';
+import Jcb from '../assets/jcb.js';
+import Elo from '../assets/elo.js';
+import Maestro from '../assets/maestro.js';
+import Discover from '../assets/discover.js';
+import Diners from '../assets/diners.js';
 
 const CARD_HEIGHT = 250;
 const CARD_WIDTH = 420;
@@ -103,6 +103,7 @@ const SingleModule = (props) => {
         onFlipCards,
         
         flip,
+        getVisibleForAndroid,
 
         rotateInterpolationFrontFaceStyle,
         rotateInterpolationBackFaceStyle,
@@ -114,10 +115,10 @@ const SingleModule = (props) => {
     return (
       <View style={[styles.container, props?.container]}>
         <Animated.View style={[styles.cardBgImgContainerFrontFace, rotateInterpolationFrontFaceStyle, {
-            zIndex: flip === 0 ? 1 : 0
+            zIndex: flip === 0 ? 1 : 0,
         }]}>
             <ImageBackground
-                source={require('../../assets/creditcardbg.png')}
+                source={require('../assets/creditcardbg.png')}
                 style={styles.cardBg}
             >
                 <View style={styles.inputContainer}>
@@ -179,11 +180,11 @@ const SingleModule = (props) => {
             </ImageBackground>
         </Animated.View>
 
-        <Animated.View style={[styles.cardBgImgContainerBackFace, rotateInterpolationBackFaceStyle, {
-            zIndex: flip === 0 ? 0 : 1
+        {getVisibleForAndroid === false ? <></> : <Animated.View style={[styles.cardBgImgContainerBackFace, rotateInterpolationBackFaceStyle, {
+            zIndex: flip === 0 ? 0 : 1,
         }]}>
             <ImageBackground
-                source={require('../../assets/creditcardbg.png')}
+                source={require('../assets/creditcardbg.png')}
                 style={styles.cardBg}
             >
                 <View style={styles.backFaceContainer}> 
@@ -195,7 +196,7 @@ const SingleModule = (props) => {
                     </View>
                     <View style={styles.stripContainer} />
                     <View style={styles.cvcContainer}>
-                            <TextInput 
+                            {<TextInput 
                                 style={[styles.inputCardCvc, props?.inputCardCvc]}
                                 ref={inputCardCvcRef}
                                 placeholder="CVC"
@@ -208,11 +209,11 @@ const SingleModule = (props) => {
                                 value={cardCvc?.value}
                                 onSubmitEditing={onCompleteFunc}
                                 {...props?.inputCardCvc}
-                            />
+                            />}
                     </View>
                 </View>
             </ImageBackground>
-        </Animated.View>
+        </Animated.View>}
       </View>
     );
   }
@@ -225,6 +226,7 @@ const SingleModule = (props) => {
         marginTop: 20,
         display: "flex",
         alignItems:"center", 
+        flex:1
     },
     stripContainer: {
         backgroundColor: "#000",
@@ -276,9 +278,10 @@ const SingleModule = (props) => {
             height: 12,
         },
         shadowOpacity: 0.58,
-        shadowRadius: 16.00,
-        elevation: 24,
+        shadowRadius: 16.00, 
         backfaceVisibility:"hidden",
+        elevation:24,
+        backgroundColor: 'transparent'
     },
     cardBgImgContainerFrontFace: {
         position:"absolute",
@@ -293,9 +296,10 @@ const SingleModule = (props) => {
             height: 12,
         },
         shadowOpacity: 0.58,
-        shadowRadius: 16.00,
-        elevation: 24,
+        shadowRadius: 16.00, 
+        elevation:24,
         backfaceVisibility:"hidden",
+        backgroundColor: 'transparent'
     },
     cardBg: {
         resizeMode:"cover",
@@ -333,12 +337,18 @@ const SingleModule = (props) => {
         color: "#FFFFFF",
         fontSize: 18,
         fontWeight: "bold",
-        marginBottom:5
+        marginBottom:5,
+        height:26,
+        padding:0,
+        backgroundColor:"#000"
     },
     inputCardNumber: {
         color: "#FFFFFF",
         fontSize: 14,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        height:26,
+        padding:0,
+        backgroundColor:"#000"
     },
     isError: (check) =>  {
         if(check) {
@@ -352,22 +362,29 @@ const SingleModule = (props) => {
     label: {
         color: "#ffffff",
         fontSize: 12,
-        fontWeight: 200,
+        fontWeight: "light",
         textAlign: "right",
-        marginBottom:10
+        marginBottom: 8
     },
     inputCardExpiry: {
         color: "#ffffff",
         fontSize: 14,
         fontWeight: "bold", 
+        textAlign:"right",
+        height:26,
+        padding:0,
+        backgroundColor:"#000",
     },
 
     inputCardCvc: {
         color: "#ffffff",
         fontSize: 14,
-        fontWeight: "bold", 
+        fontWeight: "bold",
+        height:26,
+        padding:0,
+        backgroundColor:"#000"
     }
     
 });
 
-export default SingleModule;
+export default memo(SingleModule);

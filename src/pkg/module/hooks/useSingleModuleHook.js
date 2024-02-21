@@ -1,16 +1,17 @@
-import { useCallback, useRef, useState } from 'react';
-import { Animated, Dimensions } from 'react-native';
+import {useCallback, useRef, useState} from 'react';
+import {Animated, Dimensions} from 'react-native';
 import useRotationHook from './useRotationHook';
 var creditcardutils = require('creditcardutils');
 
-const useSingleModuleHook = (props) => {
-  const { onComplete } = props;
+const useSingleModuleHook = props => {
+  const {onComplete} = props;
   const [cardType, setCardType] = useState();
 
   const [cardNumber, setCardNumber] = useState();
   const [cardHolder, setCardHolder] = useState();
   const [cardExpiry, setCardExpiry] = useState();
   const [cardCvc, setCardCvc] = useState();
+  const [getVisibleForAndroid, setVisibleForAndroid] = useState(false)
 
   const inputCardNumberRef = useRef();
   const inputCardExpiryRef = useRef();
@@ -19,7 +20,7 @@ const useSingleModuleHook = (props) => {
   const [flip, setFlip] = useState(0);
 
   const rotateInterpolationFrontFace = useRotationHook({
-    initialDeg: '-0deg',
+    initialDeg: '0deg',
     finalDeg: '-180deg',
   });
   const rotateInterpolatioBackFace = useRotationHook({
@@ -29,37 +30,49 @@ const useSingleModuleHook = (props) => {
 
   const rotateInterpolationFrontFaceStyle = {
     transform: [
-      { perspective: Dimensions.get('window').width * 2 },
-      { rotateY: rotateInterpolationFrontFace.rotateInterpolation },
+      {perspective: Dimensions.get('window').width * 2},
+      {rotateY: rotateInterpolationFrontFace.rotateInterpolation},
     ],
   };
 
   const rotateInterpolationBackFaceStyle = {
     transform: [
-      { perspective: Dimensions.get('window').width * 2 },
-      { rotateY: rotateInterpolatioBackFace.rotateInterpolation },
+      {perspective: Dimensions.get('window').width * 2},
+      {rotateY: rotateInterpolatioBackFace.rotateInterpolation},
     ],
   };
 
   const onFlipCards = useCallback(
     (sholudBack = false) => {
       if (flip === 0) {
-        if (!cardNumber) return;
-        if (cardNumber?.error) return;
+        if (!cardNumber) {
+          return;
+        }
+        if (cardNumber?.error) {
+          return;
+        }
+        setVisibleForAndroid(true)
         rotateInterpolationFrontFace?.startAnimation();
         rotateInterpolatioBackFace?.startAnimation();
       } else {
         rotateInterpolationFrontFace?.startAnimation(0); // 0 is initialState
-        rotateInterpolatioBackFace?.startAnimation(0); // 0 is initialState
+        rotateInterpolatioBackFace?.startAnimation(0, ()=>{
+          setVisibleForAndroid(false)
+        }); // 0 is initialState
+        
       }
-      setFlip((state) => (state == 0 ? 1 : 0));
+      setFlip(state => (state === 0 ? 1 : 0));
     },
-    [flip, cardNumber, rotateInterpolatioBackFace, rotateInterpolationFrontFace]
+    [
+      flip,
+      cardNumber,
+      rotateInterpolatioBackFace,
+      rotateInterpolationFrontFace,
+    ],
   );
 
   const onCompleteFunc = useCallback(() => {
-    // console.log(cardNumber, cardCvc, creditcardutils.parseCardExpiry(cardExpiry.value), creditcardutils)
-    const { month, year } = creditcardutils.parseCardExpiry(cardExpiry.value);
+    const {month, year} = creditcardutils.parseCardExpiry(cardExpiry.value);
     const values = {
       number: cardNumber.value,
       expirationMonth: month,
@@ -72,17 +85,17 @@ const useSingleModuleHook = (props) => {
   }, [onComplete, onFlipCards, cardNumber, cardCvc, cardExpiry]);
 
   const onChangeCardCvc = useCallback(
-    (e) => {
+    e => {
       if (!e.length) {
         setCardCvc();
         return;
       }
       const getCardsMeta = creditcardutils?.cards.find(
-        (v) => v.type === cardNumber.type
+        v => v.type === cardNumber.type,
       );
       const validatedCvcNumber = creditcardutils.validateCardCVC(e);
       if (e.length > getCardsMeta.cvcLength[0]) {
-        setCardCvc((state) => ({
+        setCardCvc(state => ({
           ...state,
           error: !validatedCvcNumber,
         }));
@@ -93,14 +106,14 @@ const useSingleModuleHook = (props) => {
         error: !validatedCvcNumber,
       });
     },
-    [cardNumber]
+    [cardNumber],
   );
 
-  const onChangeCardHolder = useCallback((e) => {
+  const onChangeCardHolder = useCallback(e => {
     setCardHolder(e);
   }, []);
 
-  const onChangeCardExpiry = useCallback((e) => {
+  const onChangeCardExpiry = useCallback(e => {
     if (!e.length) {
       setCardExpiry();
       return;
@@ -111,7 +124,7 @@ const useSingleModuleHook = (props) => {
     });
   }, []);
 
-  const onChangeCardNumber = useCallback((e) => {
+  const onChangeCardNumber = useCallback(e => {
     if (!e.length) {
       setCardNumber();
       setCardType();
@@ -148,6 +161,7 @@ const useSingleModuleHook = (props) => {
     onFlipCards,
 
     flip,
+    getVisibleForAndroid,
 
     rotateInterpolationFrontFaceStyle,
     rotateInterpolationBackFaceStyle,

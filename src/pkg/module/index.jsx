@@ -229,7 +229,6 @@ const SingleModule = (props) => {
         flex:1
     },
     stripContainer: {
-        backgroundColor: "#000",
         marginTop:16,
         display: "flex",
         height:45,
@@ -340,7 +339,6 @@ const SingleModule = (props) => {
         marginBottom:5,
         height:26,
         padding:0,
-        backgroundColor:"#000"
     },
     inputCardNumber: {
         color: "#FFFFFF",
@@ -348,7 +346,6 @@ const SingleModule = (props) => {
         fontWeight: "bold",
         height:26,
         padding:0,
-        backgroundColor:"#000"
     },
     isError: (check) =>  {
         if(check) {
@@ -373,7 +370,6 @@ const SingleModule = (props) => {
         textAlign:"right",
         height:26,
         padding:0,
-        backgroundColor:"#000",
     },
 
     inputCardCvc: {
@@ -382,7 +378,6 @@ const SingleModule = (props) => {
         fontWeight: "bold",
         height:26,
         padding:0,
-        backgroundColor:"#000"
     }
     
 });

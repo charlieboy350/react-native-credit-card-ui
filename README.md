@@ -1,4 +1,4 @@
-# react-native-credit-card-ui
+# react-native-credit-card-ui-pkg
 
 Credit card UI module
 
@@ -15,7 +15,7 @@ iOS & Android
 ## Installation
 
 ```sh
-npm install react-native-credit-card-ui
+npm i react-native-credit-card-ui-pkg
 ```
 
 ## Usage

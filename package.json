@@ -1,6 +1,6 @@
 {
   "name": "react-native-credit-card-ui-pkg",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Credit card UI module",
   "main": "./src/index",
   "files": [

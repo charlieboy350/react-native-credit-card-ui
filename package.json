@@ -1,6 +1,6 @@
 {
   "name": "react-native-credit-card-ui-pkg",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "Credit card UI module",
   "main": "./src/index",
   "files": [
@@ -22,8 +22,8 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace customCreditCard",
-    "test": "jest",
+    "example": "yarn workspace custom-credit-card",
+    "test": "yarn workspace custom-credit-card run test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli lib",
@@ -35,6 +35,9 @@
     "braintree",
     "paypal",
     "credit-card",
+    "credit-card",
+    "accept-blue",
+    "payment-gateway-UI",
     "ios",
     "android"
   ],
@@ -52,25 +55,29 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^17.0.2",
-    "@evilmartians/lefthook": "^1.5.0",
-    "@react-native/eslint-config": "^0.72.2",
-    "@release-it/conventional-changelog": "^5.0.0",
-    "@types/jest": "^28.1.2",
-    "@types/react": "~17.0.21",
-    "@types/react-native": "0.70.0",
+    "@commitlint/config-conventional": "^19.4.1",
+    "@evilmartians/lefthook": "^1.7.14",
+    "@react-native/babel-preset": "0.75.2",
+    "@react-native/eslint-config": "^0.75.2",
+    "@react-native/metro-config": "0.75.2",
+    "@react-native/typescript-config": "0.75.2",
+    "@release-it/conventional-changelog": "^8.0.1",
+    "@types/jest": "^29.5.12",
+    "@types/react": "~18.3.4",
+    "@types/react-native": "0.72.8",
     "babel-jest": "^29.7.0",
-    "commitlint": "^17.0.2",
-    "del-cli": "^5.0.0",
-    "eslint": "^8.4.1",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "jest": "^28.1.1",
-    "prettier": "^2.0.5",
-    "react": "18.2.0",
-    "react-native": "0.73.2",
-    "release-it": "^15.0.0",
-    "typescript": "^5.0.2"
+    "commitlint": "^19.4.1",
+    "del-cli": "^5.1.0",
+    "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "react": "18.3.1",
+    "react-native": "0.75.2",
+    "react-native-svg-transformer": "^1.5.0",
+    "release-it": "^17.6.0",
+    "typescript": "^5.5.4"
   },
   "resolutions": {
     "@types/react": "17.0.21"
@@ -81,9 +88,9 @@
   },
   "dependencies": {
     "copyfiles": "^2.4.1",
-    "credit-card-type": "^10.0.0",
+    "credit-card-type": "^10.0.1",
     "creditcardutils": "^1.0.0",
-    "react-native-svg": "^14.1.0"
+    "react-native-svg": "^15.6.0"
   },
   "workspaces": [
     "customCreditCard"

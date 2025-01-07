@@ -196,6 +196,7 @@ const SingleModule = (props) => {
                     </View>
                     <View style={styles.stripContainer} />
                     <View style={styles.cvcContainer}>
+                            <Text style={styles.label}>CVV</Text>
                             {<TextInput 
                                 style={[styles.inputCardCvc, props?.inputCardCvc]}
                                 ref={inputCardCvcRef}
@@ -234,10 +235,10 @@ const SingleModule = (props) => {
         height:45,
     },
     cvcContainer: {
-        marginTop:6,
-        padding:10,
+        marginTop:0,
+        padding:18,
         display:"flex",
-        alignItems:"flex-end"
+        alignItems:"flex-end",
     },
     goBackContainer:{
         marginTop:10,

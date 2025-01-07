@@ -25,7 +25,7 @@
     "example": "yarn workspace custom-credit-card",
     "test": "yarn workspace custom-credit-card run test",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "lint": "yarn workspace custom-credit-card run eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli lib",
     "release": "release-it"
   },
@@ -55,10 +55,12 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
     "@commitlint/config-conventional": "^19.4.1",
     "@evilmartians/lefthook": "^1.7.14",
     "@react-native/babel-preset": "0.75.2",
-    "@react-native/eslint-config": "^0.75.2",
+    "@react-native/eslint-config": "^0.76.5",
     "@react-native/metro-config": "0.75.2",
     "@react-native/typescript-config": "0.75.2",
     "@release-it/conventional-changelog": "^8.0.1",
@@ -68,11 +70,13 @@
     "babel-jest": "^29.7.0",
     "commitlint": "^19.4.1",
     "del-cli": "^5.1.0",
-    "eslint": "^9.9.1",
+    "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.3",
     "jest": "^29.7.0",
-    "prettier": "^3.3.3",
+    "metro-react-native-babel-preset": "^0.77.0",
+    "prettier": "^3.4.2",
     "react": "18.3.1",
     "react-native": "0.75.2",
     "react-native-svg-transformer": "^1.5.0",
@@ -90,7 +94,8 @@
     "copyfiles": "^2.4.1",
     "credit-card-type": "^10.0.1",
     "creditcardutils": "^1.0.0",
-    "react-native-svg": "^15.6.0"
+    "globals": "^15.14.0",
+    "react-native-svg": "^15.8.0"
   },
   "workspaces": [
     "customCreditCard"

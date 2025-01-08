@@ -23,9 +23,9 @@
   ],
   "scripts": {
     "example": "yarn workspace custom-credit-card",
-    "test": "yarn workspace custom-credit-card run test",
+    "test": "yarn run test",
     "typecheck": "tsc --noEmit",
-    "lint": "yarn workspace custom-credit-card run eslint \"**/*.{js,ts,tsx}\"",
+    "lint": "yarn run eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli lib",
     "release": "release-it"
   },
@@ -88,7 +88,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-svg": "^15.8.0"
   },
   "dependencies": {
     "copyfiles": "^2.4.1",

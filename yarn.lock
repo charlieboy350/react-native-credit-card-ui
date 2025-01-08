@@ -3484,6 +3484,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-test-renderer@npm:^19.0.0":
+  version: 19.0.0
+  resolution: "@types/react-test-renderer@npm:19.0.0"
+  dependencies:
+    "@types/react": "*"
+  checksum: a22c4401e3af216a8c2cded22702bb6f928e22af7fbcaca7e0cc28447ec34bea5a94c6d6de7ed5734c527a1b53868393e67b7b4815623802e29abb1d8d378d61
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:17.0.21":
   version: 17.0.21
   resolution: "@types/react@npm:17.0.21"
@@ -10814,6 +10823,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-is@npm:^19.0.0":
+  version: 19.0.0
+  resolution: "react-is@npm:19.0.0"
+  checksum: fbb3060bcb6b3e8e525b17f0872d1cf62a40b73fa7c5de02419069e2edd3e01cf1e8e86c8888f0733cff006175ee76ae927b40b6f0c4332bdda21020505ac90b
+  languageName: node
+  linkType: hard
+
 "react-native-credit-card-ui-pkg@workspace:.":
   version: 0.0.0-use.local
   resolution: "react-native-credit-card-ui-pkg@workspace:."
@@ -10830,6 +10846,7 @@ __metadata:
     "@types/jest": ^29.5.12
     "@types/react": ~18.3.4
     "@types/react-native": 0.72.8
+    "@types/react-test-renderer": ^19.0.0
     babel-jest: ^29.7.0
     commitlint: ^19.4.1
     copyfiles: ^2.4.1
@@ -10848,11 +10865,13 @@ __metadata:
     react-native: 0.75.2
     react-native-svg: ^15.8.0
     react-native-svg-transformer: ^1.5.0
+    react-test-renderer: ^19.0.0
     release-it: ^17.6.0
     typescript: ^5.5.4
   peerDependencies:
     react: "*"
     react-native: "*"
+    react-native-svg: ^15.8.0
   languageName: unknown
   linkType: soft
 
@@ -10982,6 +11001,18 @@ __metadata:
   peerDependencies:
     react: ^18.3.1
   checksum: e8e58e738835fab3801afb63f6bfe0fcf6e68ea39619fae5bdf47feefc36b1e4acb48c9dd139c7533611466eff1dfce6ffdda4b317e06aee663dda7d91438f26
+  languageName: node
+  linkType: hard
+
+"react-test-renderer@npm:^19.0.0":
+  version: 19.0.0
+  resolution: "react-test-renderer@npm:19.0.0"
+  dependencies:
+    react-is: ^19.0.0
+    scheduler: ^0.25.0
+  peerDependencies:
+    react: ^19.0.0
+  checksum: 2e1e527588c69e822b7aa25262c9f4a48161ede9cee5109b88228ecafbd91ce82f7afed176645efcba903ba5a43d05842a8229cdde220049e42a0cf679715dbc
   languageName: node
   linkType: hard
 
@@ -11564,6 +11595,13 @@ __metadata:
   dependencies:
     loose-envify: ^1.1.0
   checksum: 3e82d1f419e240ef6219d794ff29c7ee415fbdc19e038f680a10c067108e06284f1847450a210b29bbaf97b9d8a97ced5f624c31c681248ac84c80d56ad5a2c4
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.25.0":
+  version: 0.25.0
+  resolution: "scheduler@npm:0.25.0"
+  checksum: b7bb9fddbf743e521e9aaa5198a03ae823f5e104ebee0cb9ec625392bb7da0baa1c28ab29cee4b1e407a94e76acc6eee91eeb749614f91f853efda2613531566
   languageName: node
   linkType: hard
 
